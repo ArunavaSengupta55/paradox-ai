@@ -1,0 +1,45 @@
+type UserSettings = 
+ record {
+   defaultMode: Mode;
+   defaultReasoningStyle: ReasoningStyle;
+   theme: Theme;
+ };
+type Timestamp = int;
+type Theme = 
+ variant {
+   Dark;
+   Light;
+ };
+type ReasoningStyle = 
+ variant {
+   Analytical;
+   Creative;
+   Technical;
+ };
+type Mode = 
+ variant {
+   Analytics;
+   Image;
+   Music;
+   Text;
+   Video;
+ };
+type HistoryEntry = 
+ record {
+   id: EntryId;
+   mode: Mode;
+   prompt: text;
+   reasoningStyle: ReasoningStyle;
+   response: text;
+   timestamp: Timestamp;
+ };
+type EntryId = nat;
+service : {
+  clearHistory: () -> ();
+  deleteHistoryEntry: (id: EntryId) -> (bool);
+  getHistory: () -> (vec HistoryEntry) query;
+  getSettings: () -> (opt UserSettings) query;
+  saveHistoryEntry: (prompt: text, mode: Mode, reasoningStyle:
+   ReasoningStyle, response: text) -> (EntryId);
+  saveSettings: (settings: UserSettings) -> ();
+}

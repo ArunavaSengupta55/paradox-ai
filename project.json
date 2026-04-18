@@ -1,0 +1,22 @@
+{
+  "overview": "Paradox.ai is an advanced multi-mode AI assistant with 5 operational modes — Text, Image, Video, Music, and Analytics. It features smart prompt templates, multi-model reasoning styles, query history, and a futuristic UI.",
+  "features": [
+    "5 AI modes: Text, Image, Video, Music, Analytics",
+    "Smart Prompt Templates per mode",
+    "Multi-Model Reasoning Styles: Creative, Analytical, Technical",
+    "Mocked AI responses with structured output",
+    "Query history with search and persistence",
+    "Dark/light theme toggle",
+    "Copy-to-clipboard on responses",
+    "Settings panel with export and clear history"
+  ],
+  "category": "productivity",
+  "tags": [
+    "ai",
+    "assistant",
+    "productivity",
+    "multi-mode",
+    "paradox"
+  ],
+  "last_updated": "2026-04-18T13:11:24.246Z"
+}

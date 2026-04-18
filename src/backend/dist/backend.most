@@ -1,0 +1,44 @@
+// Version: 1.0.0
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type EntryId__144056575 = Nat;
+type HistoryEntry__948764906 =
+  {
+    id : EntryId__144056575;
+    mode : Mode__210815036;
+    prompt : Text;
+    reasoningStyle : ReasoningStyle__584027528;
+    response : Text;
+    timestamp : Timestamp__301639476
+  };
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Mode__210815036 = {#Analytics; #Image; #Music; #Text; #Video};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type ReasoningStyle__584027528 = {#Analytical; #Creative; #Technical};
+type Theme__988714401 = {#Dark; #Light};
+type Timestamp__301639476 = Int;
+type UserSettings__451559232 =
+  {
+    defaultMode : Mode__210815036;
+    defaultReasoningStyle : ReasoningStyle__584027528;
+    theme : Theme__988714401
+  };
+actor {
+  stable entries :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?HistoryEntry__948764906]];
+      var elementIndex : Nat__490723111
+    };
+  stable var nextEntryId : Nat;
+  stable settingsStore :
+    {
+      var root : Node__46230540<Principal, UserSettings__451559232>;
+      var size : Nat__490723111
+    }
+};
